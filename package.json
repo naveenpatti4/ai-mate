@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build": "expo export --platform web",
-    "vercel-build": "expo export --platform web"
+    "vercel-build": "npm config set registry https://registry.npmjs.org/ --no-auth && expo export --platform web",
+    "reset-lock": "rm -f package-lock.json && npm cache clean --force && npm install --registry=https://registry.npmjs.org/ --no-package-lock && npm install --registry=https://registry.npmjs.org/"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
