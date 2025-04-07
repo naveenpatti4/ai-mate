@@ -1,11 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
 import * as SecureStore from 'expo-secure-store';
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './env';
 
-// Use environment variables from our env.js module
-const supabaseUrl = SUPABASE_URL;
-const supabaseAnonKey = SUPABASE_ANON_KEY;
+// Access environment variables directly
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '';
+
+// Log warning if variables are missing
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.warn('Supabase credentials are not configured. Please check your environment variables.');
+}
 
 // Custom storage adapter that works across platforms
 const storage = {

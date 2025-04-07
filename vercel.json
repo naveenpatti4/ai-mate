@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "buildCommand": "npm install --no-audit --no-fund --registry=https://registry.npmjs.org/ --production=false && npm run vercel-build"
+        "buildCommand": "npm config set registry https://registry.npmjs.org/ --no-auth && npm config set always-auth false && npm install --production=false && npm run vercel-build"
       }
     }
   ],
