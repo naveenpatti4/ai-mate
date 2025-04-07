@@ -1,0 +1,15 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["*"],
+      "./supabaseClient": [
+        "./supabaseClient.native.ts",
+        "./supabaseClient.web.ts"
+      ]
+    }
+  }
+}
